@@ -8,7 +8,8 @@ For the frontend, we will use the tool of Leaflet.JS, which will help us to crea
 The steps that I was required to do are the following.
 
 ## 1. Set up the KafKa Broker 
-To run KafKA locally, we will be using Docker.
+### Locally
+To run KafKa locally, we will be using Docker.
 We will create the kafka setup inside of the messages folder, where inside of it will create the file of *docker-compose.yml*.
 
 In this docker-compose file, we will have the necessary services for KafKa:
@@ -40,4 +41,7 @@ Where we would have created the new topic: map_insight.
 
 We would also create the *getting_started.ini* settings, where will be used when starting the kafka.
 
-For using KafKa with Python we are going to use the package of *pykafka*. But for example we could also use the *python-confluent*.
+### Cloud
+We will use a free plan of a cloud provider of the kafka services: confluent.
+
+For using KafKa with Python we are going to use the package of *python-confluent*.

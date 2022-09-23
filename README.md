@@ -1,5 +1,5 @@
 # Real-Time Map
-In this project, I will create a real-time map.
+In this project, I will create a forecasting app.
 
 We will use **Kafka**, as a low-latency queue streaming processor.
 For the backend we will use FastAPI, to create the APIs needed to process the data into the frontend.

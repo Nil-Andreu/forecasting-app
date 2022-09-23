@@ -23,7 +23,7 @@ Instead of using docker compose, we could create it by parts:
 
     Zookeeper_Server_IP=$(docker inspect zookeeper --format='{{ .NetworkSettings.IPAddress }}')
 
-    docker run --name=kafka -e KAFKA_ZOOKEEPER_CONNECT=${Zookeeper_Server_IP}:2181 -e KAFKA_LISTENERS=PLAINTEXT://localhost:9092 -d -p 9092:9092 confluentinc/cp-kafka:latest
+    docker run --name=kafka -e KAFKA_ZOOKEEPER_CONNECT=${Zookeeper_Server_IP}:2181 -e KAFKA_LISTENERS=PLAINTEXT://localhost:9092 -e KAFKA_ADVERTISED_LISTENERS='PLAINTEXT://broker:9092' -d -p 9092:9092 confluentinc/cp-kafka:latest
 
 ```
 This is a good solution in the case our computer has *trouble with initializing zookeeper*.

@@ -10,6 +10,10 @@ Based on this information, we will run our model to make the predictions that we
 For this, we are also going to obtain metrics on how well our algorithm is working.
 
 In the requirements file, *requirements.txt*, we have all the requirements needed to run this project.
+To run also this project in the terminal, we have to define which is the Python Path (this is defined automatically in PyCharm):
+```
+    export PYTHONPATH="${PYTHONPATH}:/home/nil/Documents/Projects/forecasting-app"
+```
 
 ## KafKa
 Once we have all those predictions, we will publish them on KafKa, so they can be read by the main application made in Golang.

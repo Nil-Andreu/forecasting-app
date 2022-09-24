@@ -1,6 +1,16 @@
-import json
 from typing import List
+
 from confluent_kafka import Producer
+
+from .env import (
+    KAFKA_API_KEY, 
+    KAFKA_GROUP_ID, 
+    KAFKA_PRODUCER_ID,
+    KAFKA_SECRET_API_KEY, 
+    BOOTSTRAP_SERVER, 
+    SECURITY_PROTOCOL, 
+    SASL_MECHANISM
+)
 
 
 p = Producer({'bootstrap.servers': 'mybroker1,mybroker2'})

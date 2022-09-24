@@ -1,4 +1,4 @@
-# Real-Time Map
+# Forecasting App
 In this project, I will create a forecasting app.
 
 We will use **Kafka**, as a low-latency queue streaming processor.

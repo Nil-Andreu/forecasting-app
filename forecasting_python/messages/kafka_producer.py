@@ -1,23 +1,9 @@
-
 import json
 from typing import List
 from confluent_kafka import Producer
 
 
 p = Producer({'bootstrap.servers': 'mybroker1,mybroker2'})
-
-
-def get_coordinates(path: str) -> List:
-    """
-    This function will return the coordinates stored in a *path* of a JSON file.
-    """
-
-    file = open("../data/route.json")
-    json_array = json.load(file)
-    coordinates_array = json_array["features"][0]["geometry"]["coordinates"]
-
-    return coordinates_array
-
 
 
 def delivery_report(err, msg):
@@ -33,8 +19,7 @@ def delivery_report(err, msg):
         print('Message delivered to {} [{}]'.format(msg.topic(), msg.partition()))
 
 
-coordinates = get_coordinates()
-for data in coordinates:
+for data in []:
     # Trigger any available delivery report callbacks from previous produce() calls
     p.poll(1)
 

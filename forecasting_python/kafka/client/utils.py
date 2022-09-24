@@ -1,5 +1,6 @@
 from confluent_kafka import KafkaError, KafkaException
 
+
 def error_cb(err):
     """ The error callback is used for generic client errors. These
         errors are generally to be considered informational as the client will

@@ -1,4 +1,4 @@
-# Forecasting
+# Forecasting App
 We will make the forecasts of the companies that we need.
 For this, we will make periodically requests to obtain financial information of the public companies.
 
@@ -17,11 +17,17 @@ Once we have all those predictions, we will publish them on KafKa, so they can b
 This way, we aim to provide advanced analytics on the public companies.
 
 We have the following files:
-- **client**: where we will run the consumer & producers of kafka
-
-    - **kafka_consumer.py**: consumer client of kafka
-    - **kafka_producer.py**: producer client of kafka
-    - **env.py**: configuration needed for the clients
-    - **utils.py**: some utility functions used for clients
-
-- **docker-compose-kafka.yml**: in the case we would want to run a kafka cluster locally
+    .
+    ├── data                            # data science project
+    ├── kafka                           # everything related to KafKa
+    |   ├── __init__.py
+    │   ├── client                      # definitiion of our KafKa client
+    |        ├── Dockerfile             # dockerfile to run the consumer client
+    |        ├── env.py                 # environmental variables of the configuration of KafKa client
+    |        ├── kafka_consumer         # consumer client of KafKa
+    |        ├── kafka_producer         # producer client of KafKa
+    |        └── utils                  # utilities for the KafKa client
+    │   ├── .env                        # environmental variables for the configuration
+    │   ├── .env.example                # show which variables are used as environment
+    │   └── docker-copmose-kafka.yml    # to run a local cluster of KafKa
+    └── ...

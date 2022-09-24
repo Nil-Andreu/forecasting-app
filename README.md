@@ -10,13 +10,13 @@ The steps that I was required to do are the following.
 ## 1. Set up the KafKa Broker 
 ### Locally
 To run KafKa locally, we will be using Docker.
-We will create the kafka setup inside of the messages folder, where inside of it will create the file of *docker-compose.yml*.
+We will create the kafka setup inside of the messages folder, where inside of it will create the file of *docker-compose-kafka.yml*.
 
 In this docker-compose file, we will have the necessary services for KafKa:
 - Zookeeper
 - Confluentic KafKa
 
-And once we have this, we will up this service: *docker-compose up -d*. 
+And once we have this, we will up this service: *docker-compose up -f docker-compose-kafka -d*. 
 Instead of using docker compose, we could create it by parts:
 ```
     docker run --name=zookeeper -d -e ZOOKEEPER_CLIENT_PORT=2181 -p 2181:2181 -p 2888:2888 -p 3888:3888 confluentinc/cp-zookeeper:latest

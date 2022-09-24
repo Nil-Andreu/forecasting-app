@@ -9,7 +9,19 @@ Based on this information, we will run our model to make the predictions that we
 
 For this, we are also going to obtain metrics on how well our algorithm is working.
 
+In the requirements file, *requirements.txt*, we have all the requirements needed to run this project.
+
 ## KafKa
 Once we have all those predictions, we will publish them on KafKa, so they can be read by the main application made in Golang.
 
 This way, we aim to provide advanced analytics on the public companies.
+
+We have the following files:
+- **client**: where we will run the consumer & producers of kafka
+
+    - **kafka_consumer.py**: consumer client of kafka
+    - **kafka_producer.py**: producer client of kafka
+    - **env.py**: configuration needed for the clients
+    - **utils.py**: some utility functions used for clients
+
+- **docker-compose-kafka.yml**: in the case we would want to run a kafka cluster locally

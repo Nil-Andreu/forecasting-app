@@ -1,7 +1,7 @@
 from confluent_kafka import Consumer
 
-from forecasting_python.kafka.client.utils import error_cb
-from forecasting_python.kafka.client.env import (
+from forecasting_python.kafka.utils import error_cb
+from forecasting_python.kafka.env import (
     KAFKA_API_KEY, 
     KAFKA_GROUP_ID, 
     KAFKA_SECRET_API_KEY, 

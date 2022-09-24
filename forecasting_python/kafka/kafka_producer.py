@@ -2,8 +2,8 @@ import json
 import time
 from confluent_kafka import Producer, KafkaError, KafkaException
 
-from forecasting_python.kafka.client.utils import error_cb
-from forecasting_python.kafka.client.env import (
+from forecasting_python.kafka.utils import error_cb
+from forecasting_python.kafka.env import (
     KAFKA_API_KEY, 
     KAFKA_PRODUCER_ID,
     KAFKA_SECRET_API_KEY, 

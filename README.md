@@ -41,3 +41,22 @@ Then, we would create the Consumer and Producer with Python:
     - KafKa Producer Id
 
 So as we can see, some part of the configuration is similar. 
+
+
+## 2. Data Injestion
+
+There will be no product if we do not have the data resources.
+
+For this, we will go inside of the **injestion** folder, where we will develop our application for consuming data, and inside of the notebooks we will start injesting and processing this data.
+
+# Bibliography
+
+I have read different books to be able to develop this application.
+
+I have divided the references by the thematic, so if anyone is interested could consult those books:
+
+- **Forecasting/Statistics/Finance**:
+    - Jiri Pik (2021) - Hands-On Financial Trading with Python. A Practical guide to using Zipline and other Python libraries for Backtesting Trading Strategies
+    - Stefan Jansen (2020) - Machine Learning for Algorithmic Trading: Predictive models to extract signals from market and alternative data for systematic trading strategies with Python
+    - Yves Hilpisch (2020) - Python for Algorithmic Trading: From Idea to Cloud Deployment
+

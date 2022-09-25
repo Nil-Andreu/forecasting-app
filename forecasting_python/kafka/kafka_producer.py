@@ -2,28 +2,13 @@ import json
 import time
 from confluent_kafka import Producer, KafkaError, KafkaException
 
-from forecasting_python.kafka.utils import error_cb
-from forecasting_python.kafka.env import (
-    KAFKA_API_KEY, 
-    KAFKA_PRODUCER_ID,
-    KAFKA_SECRET_API_KEY, 
-    BOOTSTRAP_SERVER, 
-    SECURITY_PROTOCOL, 
-    SASL_MECHANISM
-)
+from forecasting_python.kafka.utils import kafka_config
 
 
 # Check the following Documentation: https://github.com/confluentinc/confluent-kafka-python/blob/master/examples/confluent_cloud.py
 producer = Producer({
-    'sasl.username': KAFKA_API_KEY,
-    'sasl.password': KAFKA_SECRET_API_KEY,
-    'security.protocol': SECURITY_PROTOCOL,
-    'sasl.mechanism': SASL_MECHANISM,
-    'bootstrap.servers': BOOTSTRAP_SERVER,
-    'client.id': KAFKA_PRODUCER_ID,
-    'error_cb': error_cb,
+    **kafka_config,
     'partitioner': 'consistent_random'  # in the case we would have more than one partition
-
 })
 
 

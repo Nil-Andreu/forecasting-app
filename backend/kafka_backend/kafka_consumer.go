@@ -29,16 +29,14 @@ func read_env() (string, string, string, string, string, string) {
 }
 
 
-func create_consumer() {
-	
-}
-
-
-func Kafka_consumer() (*kafka.Consumer) {
-	// We obtain first the environmental variables that we want
-	KAFKA_API_KEY, KAFKA_SECRET_API_KEY, KAFKA_GROUP_ID, BOOTSTRAP_SERVER, SECURITY_PROTOCOL, SASL_MECHANISM := read_env()
-	
-
+func create_consumer(
+		KAFKA_API_KEY string, 
+		KAFKA_SECRET_API_KEY string, 
+		KAFKA_GROUP_ID string, 
+		BOOTSTRAP_SERVER string, 
+		SECURITY_PROTOCOL string, 
+		SASL_MECHANISM string) (*kafka.Consumer) {
+			
 	consumer, err := kafka.NewConsumer(&kafka.ConfigMap{
 		"sasl.username": KAFKA_API_KEY,
 		"sasl.password": KAFKA_SECRET_API_KEY,
@@ -53,6 +51,17 @@ func Kafka_consumer() (*kafka.Consumer) {
 		os.Exit(1)
 	}
 	fmt.Println(consumer)
+
+	return consumer
+}
+
+
+func Kafka_consumer() (*kafka.Consumer) {
+	// We obtain first the environmental variables that we want
+	KAFKA_API_KEY, KAFKA_SECRET_API_KEY, KAFKA_GROUP_ID, BOOTSTRAP_SERVER, SECURITY_PROTOCOL, SASL_MECHANISM := read_env()
+	
+	consumer := create_consumer(KAFKA_API_KEY, KAFKA_SECRET_API_KEY, KAFKA_GROUP_ID, 
+								BOOTSTRAP_SERVER, SECURITY_PROTOCOL, SASL_MECHANISM)
 
 	return consumer
 }

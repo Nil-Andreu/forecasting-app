@@ -57,8 +57,8 @@ func Kafka_producer() (*kafka.Producer) {
 	// We obtain first the environmental variables that we want
 	KAFKA_API_KEY, KAFKA_SECRET_API_KEY, BOOTSTRAP_SERVER, SECURITY_PROTOCOL, SASL_MECHANISM := read_env_producer()
 	
-	consumer := create_producer(KAFKA_API_KEY, KAFKA_SECRET_API_KEY, 
+	producer := create_producer(KAFKA_API_KEY, KAFKA_SECRET_API_KEY, 
 								BOOTSTRAP_SERVER, SECURITY_PROTOCOL, SASL_MECHANISM)
 
-	return consumer
+	return producer
 }

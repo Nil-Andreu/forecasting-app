@@ -3,7 +3,7 @@ package main
 import (
 	_ "fmt"
 
-	"./kafka_backend"  // because we have modules off
+	"github.com/Nil-Andreu/forecasting-app/backend/kafka_backend"  // because we have modules off
 )
 
 func main() {

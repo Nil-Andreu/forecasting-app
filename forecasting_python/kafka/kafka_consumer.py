@@ -12,12 +12,12 @@ consumer = Consumer({
 })
 
 consumer.subscribe(['financials'])
-    
 
-try:
+
+def run_consumer(poll_time):
     while True:
         # Receive all the messages created each 500 milliseconds
-        message = consumer.poll(0.5)
+        message = consumer.poll(poll_time)
 
         if message is None:
             continue
@@ -28,6 +28,10 @@ try:
 
         value = message.value()
         print('Consumed: {}'.format(value))
+
+
+try:
+    run_consumer(0.5)
 
 except KeyboardInterrupt:
     pass

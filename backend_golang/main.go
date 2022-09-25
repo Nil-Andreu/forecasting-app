@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+)
 
 func main() {
 	want := "Hello world"

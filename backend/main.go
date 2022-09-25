@@ -8,6 +8,7 @@ import (
 
 func main() {
 	kafka_backend.Kafka_consumer()
+	kafka_backend.Kafka_producer()
 
 	// fmt.Println(consumer)
 }

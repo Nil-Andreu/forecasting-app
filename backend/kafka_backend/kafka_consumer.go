@@ -12,7 +12,7 @@ import (
 )
 
 
-func read_env() (string, string, string, string, string, string) {
+func read_env_consumer() (string, string, string, string, string, string) {
 	err := godotenv.Load()
 	if err != nil {
 		log.Fatal("Error loading .env file", err)
@@ -58,7 +58,7 @@ func create_consumer(
 
 func Kafka_consumer() (*kafka.Consumer) {
 	// We obtain first the environmental variables that we want
-	KAFKA_API_KEY, KAFKA_SECRET_API_KEY, KAFKA_GROUP_ID, BOOTSTRAP_SERVER, SECURITY_PROTOCOL, SASL_MECHANISM := read_env()
+	KAFKA_API_KEY, KAFKA_SECRET_API_KEY, KAFKA_GROUP_ID, BOOTSTRAP_SERVER, SECURITY_PROTOCOL, SASL_MECHANISM := read_env_consumer()
 	
 	consumer := create_consumer(KAFKA_API_KEY, KAFKA_SECRET_API_KEY, KAFKA_GROUP_ID, 
 								BOOTSTRAP_SERVER, SECURITY_PROTOCOL, SASL_MECHANISM)

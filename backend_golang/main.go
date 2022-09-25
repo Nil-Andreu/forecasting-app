@@ -1,11 +1,12 @@
 package main
 
 import (
-	"fmt"
+	_ "fmt"
 
+	"./kafka_golang"
 )
 
 func main() {
-	want := "Hello world"
-	fmt.Println(want)
+	kafka_golang.kafka_consumer()
+	// fmt.Println(want)
 }

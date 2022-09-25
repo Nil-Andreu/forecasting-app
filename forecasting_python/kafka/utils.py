@@ -2,7 +2,6 @@ from confluent_kafka import KafkaError, KafkaException
 
 from forecasting_python.kafka.env import (
     KAFKA_API_KEY, 
-    KAFKA_GROUP_ID, 
     KAFKA_SECRET_API_KEY, 
     BOOTSTRAP_SERVER, 
     SECURITY_PROTOCOL, 

@@ -70,6 +70,6 @@ func Kafka_producer() (*kafka.Producer) {
 	}, nil)
 	
 
-	// Wait for message 
-	return producer
+	// Wait for message to be delivered
+	producer.Flush(15 * 1000) 
 }

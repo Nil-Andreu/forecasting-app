@@ -11,7 +11,8 @@ import (
 	"github.com/confluentinc/confluent-kafka-go/kafka"
 )
 
-func Kafka_consumer() {
+
+func read_env() (string, string, string, string, string, string) {
 	err := godotenv.Load()
 	if err != nil {
 		log.Fatal("Error loading .env file", err)
@@ -24,6 +25,20 @@ func Kafka_consumer() {
 	SECURITY_PROTOCOL := os.Getenv("SECURITY_PROTOCOL")
 	SASL_MECHANISM := os.Getenv("SASL_MECHANISM")
 
+	return KAFKA_API_KEY, KAFKA_SECRET_API_KEY, KAFKA_GROUP_ID, BOOTSTRAP_SERVER, SECURITY_PROTOCOL, SASL_MECHANISM
+}
+
+
+func create_consumer() {
+	
+}
+
+
+func Kafka_consumer() (*kafka.Consumer) {
+	// We obtain first the environmental variables that we want
+	KAFKA_API_KEY, KAFKA_SECRET_API_KEY, KAFKA_GROUP_ID, BOOTSTRAP_SERVER, SECURITY_PROTOCOL, SASL_MECHANISM := read_env()
+	
+
 	consumer, err := kafka.NewConsumer(&kafka.ConfigMap{
 		"sasl.username": KAFKA_API_KEY,
 		"sasl.password": KAFKA_SECRET_API_KEY,
@@ -32,5 +47,12 @@ func Kafka_consumer() {
 		"security.protocol": SECURITY_PROTOCOL,
 		"sasl.mechanism": SASL_MECHANISM})
 
+
+	if err != nil {
+		log.Fatal("Failed to create the Consumer", err)
+		os.Exit(1)
+	}
 	fmt.Println(consumer)
+
+	return consumer
 }

@@ -1,4 +1,4 @@
-package main
+package kafka_golang
 
 import (
 	"fmt"
@@ -8,7 +8,7 @@ import (
 	_ "syscall"
 
 	"github.com/joho/godotenv"
-	_ "github.com/confluentinc/confluent-kafka-go/kafka"
+	"github.com/confluentinc/confluent-kafka-go/kafka"
 )
 
 func main() {
@@ -20,11 +20,17 @@ func main() {
 	KAFKA_API_KEY := os.Getenv("KAFKA_API_KEY")
 	KAFKA_SECRET_API_KEY := os.Getenv("KAFKA_SECRET_API_KEY")
 	KAFKA_GROUP_ID := os.Getenv("KAFKA_GROUP_ID")
-	KAFKA_CONSUMER_ID := os.Getenv("KAFKA_CONSUMER_ID")
-	KAFKA_PRODUCER_ID := os.Getenv("KAFKA_PRODUCER_ID")
 	BOOTSTRAP_SERVER := os.Getenv("BOOTSTRAP_SERVER")
 	SECURITY_PROTOCOL := os.Getenv("SECURITY_PROTOCOL")
 	SASL_MECHANISM := os.Getenv("SASL_MECHANISM")
 
-	fmt.Println(KAFKA_API_KEY)
+	consumer, err := kafka.NewConsumer(&kafka.ConfigMap{
+		"sasl.username": KAFKA_API_KEY,
+		"sasl.password": KAFKA_SECRET_API_KEY,
+		"bootstrap.servers": BOOTSTRAP_SERVER,
+		"group.id": KAFKA_GROUP_ID,
+		"security.protocol": SECURITY_PROTOCOL,
+		"sasl.mechanism": SASL_MECHANISM})
+
+	fmt.Println(consumer)
 }

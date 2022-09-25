@@ -1,4 +1,4 @@
-module kafka
+module kafka_golang
 
 go 1.18
 

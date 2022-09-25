@@ -60,5 +60,16 @@ func Kafka_producer() (*kafka.Producer) {
 	producer := create_producer(KAFKA_API_KEY, KAFKA_SECRET_API_KEY, 
 								BOOTSTRAP_SERVER, SECURITY_PROTOCOL, SASL_MECHANISM)
 
+
+	// Produce messages to topic (asynchronously)
+	topic := "financials"
+	message := "financial message"
+	producer.Produce(&kafka.Message{
+		TopicPartition: kafka.TopicPartition{Topic: &topic, Partition: 1},
+		Value:          []byte(message),
+	}, nil)
+	
+
+	// Wait for message 
 	return producer
 }

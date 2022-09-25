@@ -3,10 +3,10 @@ package main
 import (
 	_ "fmt"
 
-	"./kafka_golang"
+	"./kafka_backend"
 )
 
 func main() {
-	kafka_golang.kafka_consumer()
+	kafka_backend.Kafka_consumer()
 	// fmt.Println(want)
 }

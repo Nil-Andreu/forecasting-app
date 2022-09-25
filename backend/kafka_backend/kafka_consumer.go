@@ -1,4 +1,4 @@
-package kafka_golang
+package kafka_backend
 
 import (
 	"fmt"
@@ -11,10 +11,10 @@ import (
 	"github.com/confluentinc/confluent-kafka-go/kafka"
 )
 
-func kafka_consumer() {
+func Kafka_consumer() {
 	err := godotenv.Load()
 	if err != nil {
-		log.Fatal("Error loading .env file")
+		log.Fatal("Error loading .env file", err)
 	}
 
 	KAFKA_API_KEY := os.Getenv("KAFKA_API_KEY")

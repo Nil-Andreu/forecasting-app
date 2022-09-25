@@ -1,4 +1,4 @@
-package kafka_golang
+package kafka_backend
 
 import "fmt"
 

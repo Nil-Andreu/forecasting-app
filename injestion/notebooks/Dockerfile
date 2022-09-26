@@ -15,28 +15,29 @@ RUN /docker-entrypoint.sh
 # Pre-pend the new path
 ENV PATH /root/miniconda3/bin:$PATH
 
-# Conda create new environment and install dependencies
-# 1. Create & activate environment
+# Create, activate environment (conda init bash initializes conda in bash config) & install packages
 RUN conda create -n environment python=3.8
-RUN conda activate environment
+RUN conda init bash
 
-# 2. Install packages
-RUN conda install -y pandas \
-    jupyter \
-    seaborn \
-    statsmodels \
-    pystan
+# RUN commands will be using the environment
+# RUN echo "conda activate myenv" > ~/.bashrc
+SHELL ["conda", "run", "-n", "environment", "/bin/bash", "-c"]
 
-# 3. Install fbprophet
-RUN conda install -c conda-forge -y fbprophet
+RUN conda install -y pandas jupyter seaborn statsmodels pystan && \
+    conda install -c conda-forge -y fbprophet
+
+# RUN conda activate environment && \
+# RUN echo ". /home/<user>/miniconda3/etc/profile.d/conda.sh" >> ~/.bashrc && \
+#     conda init bash && conda activate environment
+# RUN conda install -y pandas jupyter seaborn statsmodels pystan && \
+#     conda install -c conda-forge -y fbprophet
 
 # We set which is our workdir and copy the files
 WORKDIR /app
 COPY * /app/
 
 EXPOSE 8888
-RUN conda activate environment
 
 # When run container, at the end CMD execution
-# In the case we want an interactive terminal in Python with the environment ocnfigured CMD ["ipython"]
+# In the case we want an interactive terminal in Python with the environment configured CMD ["ipython"]
 CMD ["jupyter", "notebook", "--port=8888", "--ip=0.0.0.0"]

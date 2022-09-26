@@ -19,3 +19,6 @@ export PATH="/root/miniconda3/bin:$PATH"  # pre-pends the path
 # Installation of python libraries
 conda install -y pandas
 conda install -y ipython
+conda install -y jupyter seaborn statsmodels 
+conda install -y pystan
+conda install -y fbprophet

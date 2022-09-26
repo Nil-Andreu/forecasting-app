@@ -7,3 +7,4 @@ seaborn==0.12
 dtale==2.3.1
 datetime==4.7
 statsmodels==1.16
+pmdarima==2.0.1

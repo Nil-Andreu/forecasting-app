@@ -1,0 +1,3 @@
+yahoo_find
+requests_html
+jupyter

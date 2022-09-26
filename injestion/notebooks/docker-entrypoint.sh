@@ -17,8 +17,12 @@ rm -rf Miniconda.sh
 export PATH="/root/miniconda3/bin:$PATH"  # pre-pends the path
 
 # Installation of python libraries
+conda create -n environment python=3.8
+conda activate environment
+
 conda install -y pandas
-conda install -y ipython
+# conda install -y ipython
 conda install -y jupyter seaborn statsmodels 
 conda install -y pystan
-conda install -y fbprophet
+
+conda install -c conda-forge -y fbprophet

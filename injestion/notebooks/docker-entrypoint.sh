@@ -12,7 +12,8 @@ apt-get clean   # cleans up package index cache
 
 # Installation of miniconda
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O Miniconda.sh   # download of miniconda
-bash Miniconda.sh  # installation of miniconda
+bash Miniconda.sh -b    # installation of miniconda
+rm -rf Miniconda.sh
 export PATH="/root/miniconda3/bin:$PATH"  # pre-pends the path
 
 # Installation of python libraries

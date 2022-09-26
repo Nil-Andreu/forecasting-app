@@ -17,6 +17,3 @@ ENV PATH /root/miniconda3/bin:$PATH
 
 # When run container, at the end CMD execution
 CMD ["ipython"]
-
-
-RUN 

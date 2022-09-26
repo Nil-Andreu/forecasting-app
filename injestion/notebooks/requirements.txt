@@ -1,4 +1,4 @@
-yahoo_find
+yahoo_fin
 requests_html
 jupyter
 confluent_kafka==1.9.2

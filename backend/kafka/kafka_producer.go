@@ -1,4 +1,4 @@
-package kafka_backend
+package kafka
 
 import (
 	"fmt"

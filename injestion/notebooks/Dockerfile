@@ -15,22 +15,17 @@ RUN /docker-entrypoint.sh
 # Pre-pend the new path
 ENV PATH /root/miniconda3/bin:$PATH
 
-# Create, activate environment (conda init bash initializes conda in bash config) & install packages
-RUN conda create -n environment python=3.8
-RUN conda init bash
+# # Create, activate environment (conda init bash initializes conda in bash config) & install packages
+# RUN conda create -n environment python=3.8
+# RUN conda init bash
 
-# RUN commands will be using the environment
-# RUN echo "conda activate myenv" > ~/.bashrc
-SHELL ["conda", "run", "-n", "environment", "/bin/bash", "-c"]
+# # RUN commands will be using the environment
+# # https://pythonspeed.com/articles/activate-conda-dockerfile/
+# SHELL ["conda", "run", "-n", "environment", "/bin/bash", "-c"]
 
-RUN conda install -y pandas jupyter seaborn statsmodels pystan && \
-    conda install -c conda-forge -y fbprophet
-
-# RUN conda activate environment && \
-# RUN echo ". /home/<user>/miniconda3/etc/profile.d/conda.sh" >> ~/.bashrc && \
-#     conda init bash && conda activate environment
-# RUN conda install -y pandas jupyter seaborn statsmodels pystan && \
+# RUN conda install -y jupyter pandas seaborn statsmodels pystan && \
 #     conda install -c conda-forge -y fbprophet
+
 
 # We set which is our workdir and copy the files
 WORKDIR /app
@@ -38,6 +33,5 @@ COPY * /app/
 
 EXPOSE 8888
 
-# When run container, at the end CMD execution
 # In the case we want an interactive terminal in Python with the environment configured CMD ["ipython"]
-CMD ["jupyter", "notebook", "--port=8888", "--ip=0.0.0.0"]
+CMD ["jupyter", "notebook", "--port=8888", "--ip=0.0.0.0", "--allow-root"]

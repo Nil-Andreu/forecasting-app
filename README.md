@@ -11,6 +11,13 @@ And we will have microservices to injest/clean new data, as well as making apply
 
 The steps that I was required to do are the following.
 
+So this is divided in the following repositories:
+- [injestion](https://github.com/Nil-Andreu/injestion_forecasting-app)
+- [forecasting](https://github.com/Nil-Andreu/forecasting_forecasting-app)
+- [backend](https://github.com/Nil-Andreu/backend_forecasting-app)
+- [frontend]()
+
+
 ## 1. Set up the KafKa Broker 
 
 ### Cloud
